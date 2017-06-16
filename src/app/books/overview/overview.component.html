@@ -1,0 +1,13 @@
+<h1>Overview component</h1>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Number available</th>
+  </tr>
+  <tr *ngFor="let book of books">
+    <th>{{book.title}}</th>
+    <th>{{book.author}}</th>
+    <th>{{book.availableCopies}}</th>
+  </tr>
+</table>
