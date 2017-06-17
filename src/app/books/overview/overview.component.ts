@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Book} from '../book';
+import {BOOKS} from '../mock-books'
 
 @Component({
   selector: 'app-overview',
@@ -9,11 +10,17 @@ import {Book} from '../book';
 export class OverviewComponent implements OnInit {
 
   private books: Book[];
+  private selectedBook: Book;
 
   constructor() {
   }
 
   ngOnInit() {
+    this.books = BOOKS;
+  }
+
+  selectBook(book): void {
+    this.selectedBook = book;
   }
 
 }

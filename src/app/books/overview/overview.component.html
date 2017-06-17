@@ -1,13 +1,19 @@
-<h1>Overview component</h1>
-<table>
+<table class="table">
   <tr>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Number available</th>
-  </tr>
-  <tr *ngFor="let book of books">
-    <th>{{book.title}}</th>
-    <th>{{book.author}}</th>
-    <th>{{book.availableCopies}}</th>
+    <td>
+      <table class="table">
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Number available</th>
+        </tr>
+        <tr *ngFor="let book of books" (click)="selectBook(book)">
+          <td>{{book.title}}</td>
+          <td>{{book.author}}</td>
+          <td>{{book.availableCopies}}</td>
+        </tr>
+      </table>
+    </td>
+    <td><app-details></app-details></td>
   </tr>
 </table>
