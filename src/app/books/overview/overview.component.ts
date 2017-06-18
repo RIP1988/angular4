@@ -23,4 +23,8 @@ export class OverviewComponent implements OnInit {
     this.selectedBook = book;
   }
 
+  onBookUpdate(updatedBook) {
+    console.log(updatedBook.title + ' '  + updatedBook.author);
+  }
+
 }
