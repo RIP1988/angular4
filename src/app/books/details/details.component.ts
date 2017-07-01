@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Book} from '../book';
 
 @Component({
@@ -8,11 +8,7 @@ import {Book} from '../book';
 })
 export class DetailsComponent implements OnInit {
 
-  @Input()
   book: Book;
-
-  @Output()
-  bookUpdate: EventEmitter<Book> = new EventEmitter();
 
   constructor() {
   }
