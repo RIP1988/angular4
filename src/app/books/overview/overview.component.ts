@@ -10,7 +10,6 @@ import {BOOKS} from "../mock-books";
 export class OverviewComponent implements OnInit {
 
   private books: Book[];
-  private selectedBook: Book;
 
   constructor() {
   }
@@ -19,8 +18,8 @@ export class OverviewComponent implements OnInit {
     this.books = BOOKS;
   }
 
-  selectBook(book): void {
-    this.selectedBook = book;
+  showDetails(book): void {
+
   }
 
   onBookUpdate(updatedBook) {
