@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Book} from '../book';
-import {BOOKS} from '../mock-books'
+import {Component, OnInit} from "@angular/core";
+import {Book} from "../book";
+import {BOOKS} from "../mock-books";
 
 @Component({
   selector: 'app-overview',
@@ -24,7 +24,8 @@ export class OverviewComponent implements OnInit {
   }
 
   onBookUpdate(updatedBook) {
-    console.log(updatedBook.title + ' '  + updatedBook.author);
+    const bookToUpdate = this.books.filter(item => item.id === updatedBook.id)[0];
+    Object.assign(bookToUpdate, updatedBook);
   }
 
 }

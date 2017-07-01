@@ -21,7 +21,7 @@ export class DetailsComponent implements OnInit {
   }
 
   saveChanges() {
-    this.bookUpdate.emit(this.book);
+    console.log('save changes');
   }
 
 }
