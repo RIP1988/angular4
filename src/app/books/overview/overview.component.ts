@@ -1,6 +1,7 @@
-import {Component, OnInit} from "@angular/core";
-import {Book} from "../book";
-import {BOOKS} from "../mock-books";
+import {Component, OnInit} from '@angular/core';
+import {Book} from '../book';
+import {Router} from '@angular/router';
+import {BooksService} from '../books.service';
 
 @Component({
   selector: 'app-overview',
@@ -11,15 +12,15 @@ export class OverviewComponent implements OnInit {
 
   private books: Book[];
 
-  constructor() {
+  constructor(private router: Router, private booksService: BooksService) {
   }
 
   ngOnInit() {
-    this.books = BOOKS;
+    this.booksService.getBooks().subscribe(books => this.books = books);
   }
 
   showDetails(book): void {
-
+    this.router.navigate(['/book', book.id]);
   }
 
   onBookUpdate(updatedBook) {
