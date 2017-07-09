@@ -18,11 +18,11 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.switchMap((params: ParamMap) => this.bookService.getBookById(+params.get('id')))
-      .subscribe(book => this.book = book);
+      .subscribe(book => this.book = Object.assign({}, book));
   }
 
   saveChanges() {
-    console.log('save changes');
+    this.bookService.saveBook(this.book);
   }
 
 }
