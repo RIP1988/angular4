@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Book} from '../book';
-import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import 'rxjs/add/operator/switchMap';
-import {BooksService} from '../books.service';
+import {Component, OnInit} from "@angular/core";
+import {Book} from "../book";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import "rxjs/add/operator/switchMap";
+import {BooksService} from "../books.service";
 
 @Component({
   selector: 'app-details',
@@ -23,6 +23,10 @@ export class DetailsComponent implements OnInit {
 
   saveChanges() {
     this.bookService.saveBook(this.book);
+    this.backToOverview();
+  }
+
+  backToOverview() {
     this.router.navigate(['/books']);
   }
 
