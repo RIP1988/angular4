@@ -7,26 +7,30 @@ import {cloneDeep} from 'lodash';
 @Injectable()
 export class BooksService {
 
+  private books: Book[];
+
   constructor() {
+    this.books = cloneDeep(BOOKS);
   }
 
   getBooks(): Observable<Array<Book>> {
-    return new Observable<Array<Book>>(observer => observer.next(cloneDeep(BOOKS)));
+    return new Observable<Array<Book>>(observer => observer.next(cloneDeep(this.books)));
   }
 
   getBookById(id: number): Observable<Book> {
     return new Observable<Book>(observer => {
-      const foundBook = Object.assign({}, BOOKS.filter(book => book.id === id)[0]);
+      const foundBook = Object.assign({}, this.books.filter(book => book.id === id)[0]);
       observer.next(foundBook);
     });
   }
 
   saveBook(bookToSave: Book): void {
-    const foundBook = BOOKS.filter(book => bookToSave.id === book.id)[0];
+    const foundBook = this.books.filter(book => bookToSave.id === book.id)[0];
     if (foundBook) {
       Object.assign(foundBook, bookToSave);
     } else {
-      console.log('No book found');
+      bookToSave.id = this.books.length + 1;
+      this.books.push(bookToSave);
     }
   }
 

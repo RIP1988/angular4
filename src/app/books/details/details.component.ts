@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Book} from '../book';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import {BooksService} from '../books.service';
 
@@ -13,7 +13,7 @@ export class DetailsComponent implements OnInit {
 
   book: Book;
 
-  constructor(private route: ActivatedRoute, private bookService: BooksService) {
+  constructor(private route: ActivatedRoute, private bookService: BooksService, private router: Router) {
   }
 
   ngOnInit() {
@@ -23,6 +23,7 @@ export class DetailsComponent implements OnInit {
 
   saveChanges() {
     this.bookService.saveBook(this.book);
+    this.router.navigate(['/books']);
   }
 
 }
