@@ -6,6 +6,7 @@ import {MenuComponent} from './menu/menu.component';
 import {BooksModule} from './books/books.module';
 import {FormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
+import {UsersModule} from './users/users.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import {AppRoutingModule} from './app-routing.module';
   imports: [
     BrowserModule,
     FormsModule,
+    UsersModule,
     BooksModule,
     AppRoutingModule
   ],
