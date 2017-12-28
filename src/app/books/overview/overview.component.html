@@ -1,19 +1,18 @@
 <table class="table">
   <tr>
     <td>
-      <table class="table">
+      <table class="table table-hover">
         <tr>
           <th>Title</th>
           <th>Author</th>
           <th>Number available</th>
         </tr>
-        <tr *ngFor="let book of books" (click)="selectBook(book)">
+        <tr *ngFor="let book of books" (click)="showDetails(book)">
           <td>{{book.title}}</td>
           <td>{{book.author}}</td>
           <td>{{book.availableCopies}}</td>
         </tr>
       </table>
     </td>
-    <td><app-details [book]="selectedBook" (bookUpdate)="onBookUpdate($event)"></app-details></td>
   </tr>
 </table>

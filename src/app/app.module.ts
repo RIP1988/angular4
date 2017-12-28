@@ -1,10 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { MenuComponent } from './menu/menu.component';
+import {AppComponent} from './app.component';
+import {MenuComponent} from './menu/menu.component';
 import {BooksModule} from './books/books.module';
 import {FormsModule} from '@angular/forms';
+import {AppRoutingModule} from './app-routing.module';
+import {UsersModule} from './users/users.module';
 
 @NgModule({
   declarations: [
@@ -14,9 +16,12 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
-    BooksModule
+    UsersModule,
+    BooksModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
